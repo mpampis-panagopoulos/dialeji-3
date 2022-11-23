@@ -1,0 +1,33 @@
+// υπερφόρτωση συνάρτησης – Πολυμορφισμός
+#include <iostream>
+using namespace std;
+
+int plusFunc(int x, int y) {
+  return x + y;
+}
+
+double plusFunc(double x, double y) {
+  return x + y;
+}
+
+int main() {
+  int myNum1 = plusFunc(8, 5);
+  double myNum2 = plusFunc(4.3, 6.26);
+  cout << "Int: " << myNum1 << "\n";
+  cout << "Double: " << myNum2;
+  return 0;
+}
+
+Αλλιώς:
+template <typename T>
+T plusFunc (T x, T y)
+{
+    return x + y;
+}
+
+int main()
+{
+    std::cout << plusFunc (1, 2) << '\n';   // will instantiate max(int, int)
+    std::cout << plusFunc (1.5, 2.5) << '\n'; // will instantiate max(double, double)
+    return 0;
+}
