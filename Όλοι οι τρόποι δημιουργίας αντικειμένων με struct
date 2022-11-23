@@ -1,0 +1,53 @@
+//Όλοι οι τρόποι δημιουργίας αντικειμένων με struct
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Rectangle {
+    int width;  // member variable
+    int height; // member variable
+    
+    Rectangle(){//default
+        width = 0;
+        height = 0;
+    }
+    
+    Rectangle(int a, int b){
+    	width = a;
+        height = b;
+    }
+
+    void set_dimensions( int width_ , int height_ )
+    {
+        width = width_;
+        height = height_;
+    }
+
+    int area() const
+    {
+        return ( width * height );
+    }
+}; //Telos struct
+
+void printStruct(Rectangle rec){
+    std::cout << "rectangle width: " << rec.width << '\n';
+    std::cout << "rectangle height: " << rec.height << '\n';
+    std::cout << "rectangle area: " << rec.area() << '\n';
+}
+
+int main()
+{
+    Rectangle rectA;
+	printStruct(rectA);
+    
+    Rectangle rectB{5,4};
+	printStruct(rectB);
+
+    Rectangle rectC(1,2);
+	printStruct(rectC);
+
+    rectC.set_dimensions(44, 33);
+	printStruct(rectC);
+
+    return 0;
+}
